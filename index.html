@@ -33,7 +33,7 @@
                     <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
                 </ul>
                 <span class="navbar-text">
-                    <a data-toggle="modal" data-target="#loginModal">
+                    <a id="login">
                         <span class="fa fa-sign-in"></span> Login
                     </a>
                 </span>
@@ -47,7 +47,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Login</h4>
-                    <button type="button" class="close" data-dismiss="modal">
+                    <button type="button" class="close">
                         &times;
                     </button>
                 </div>
@@ -58,7 +58,7 @@
                                     <label class="sr-only" for="exampleInputEmail3">Email address</label>
                                     <input type="email" class="form-control form-control-sm mr-1" id="exampleInputEmail3" placeholder="Enter email">
                             </div>
-                            <div class="form-group col-sm-4>
+                            <div class="form-group col-sm-4">
                                 <label class="sr-only" for="exampleInputPassword3">Password</label>
                                 <input type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword3" placeholder="Password">
                             </div>
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-secondary btn-sm ml-auto" id="logincancel" >Cancel</button>
                             <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>        
                         </div>
                     </form>
@@ -85,7 +85,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Reserve a Table</h4>
-                    <button type="button" class="close" data-dismiss="modal">
+                    <button type="button" class="close" >
                         &times;
                     </button>
                 </div>
@@ -93,7 +93,7 @@
                     <form>
                         <div class="form-group">
                             <div class="row">
-                                <label class="col-12 col-md-3 col-form-label" for="num_guests">Number of Guests</label>
+                                <label class="col-12 col-md-2 col-form-label" for="num_guests">Number of Guests</label>
                                 
                                 <div class="col-2 col-md-1">
                                     <div class="form-check form-check-inline">          
@@ -142,7 +142,7 @@
                         <div class="form-group row">
                             <label for="section" class="col-12 col-md-2">Section</label>
                 
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons" id="section">
+                            <div class="btn-group btn-group-toggle" id="section">
                                 <label class="btn btn-success active">
                                   <input type="radio" name="smoke" id="nonsmoking" autocomplete="off" checked> Non-Smoking
                                 </label>
@@ -167,10 +167,8 @@
                         </div>
                 
                         <div class="form-group row">
-                            <div class="offset-md-2 col-md-1">
-                                <button type="buttom" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            </div>
-                            <div class="offset-md-1 col-md-1">
+                            <div class="form-group offset-2 col-md-4">
+                                <button type="buttom" class="btn btn-secondary" id="reservecancel">Cancel</button>
                                 <button type="submit" class="btn btn-primary">Reserve</button>
                             </div>
                         </div>
@@ -194,7 +192,7 @@
 
                 <div class="col-12 col-sm align-self-center">
                     <!-- <a role="button" href="#reserve" class="btn btn-block nav-link btn-sm btn-warning" data-toggle="tooltip" data-html="true" title="or call us at <br><strong>+852 12345678><strong>" data-placement="bottom">Reserve Table</a> -->
-                    <a role="button" class="btn btn-block nav-link btn-sm btn-warning" data-toggle="modal" data-target="#reserveModal">Reserve Table</a>  
+                    <a role="button" class="btn btn-block nav-link btn-sm btn-warning" id="reserve">Reserve Table</a>  
                 </div>
             </div>
         </div>
@@ -369,6 +367,38 @@
                     $('#carouselButton').children('span').removeClass('fa-play');
                     $('#carouselButton').children('span').addClass('fa-pause');
                 }
+            });
+
+            $('#login').click(function(){
+                $('#loginModal').modal('show');
+                $('#loginModal').modal('toggle');
+                $('.close').click(function(){
+                    $('#loginModal').modal('hide');
+                });
+                $('#logincancel').click(function(){
+                    $('#loginModal').modal('hide');
+                });
+            });
+
+            $('#reserve').click(function(){
+                $('#reserveModal').modal('show');
+                $('#reserveModal').modal('toggle');
+
+                $('.close').click(function(){
+                    $('#reserveModal').modal('hide');
+                });
+
+                $('#reservecancel').click(function(){
+                    $('#reserveModal').modal('hide');
+                });
+
+                $('#nonsmoking').click(function(){
+                    if($('#nonsmoking').hasClass('active') == false) $('#nonsmoking').addClass('active');
+                });
+                
+                $('#smoking').click(function(){
+                    if($('#smoking').hasClass('active') == false) $('#smoking').addClass('active');
+                });
             });
         });
     </script>

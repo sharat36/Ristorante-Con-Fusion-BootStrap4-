@@ -64,4 +64,26 @@ body {
   bottom: 0px;
 }
 
+#loginModal .modal-header {
+  color: floralwhite;
+  background: #512dab;
+}
+#loginModal .modal-content {
+  background: #d1c4e9;
+}
+#loginModal .close {
+  color: floralwhite;
+}
+
+#reserveModal .modal-header {
+  background: #512dab;
+  color: floralwhite;
+}
+#reserveModal .modal-content {
+  background: #d1c4e9;
+}
+#reserveModal .close {
+  color: floralwhite;
+}
+
 /*# sourceMappingURL=styles.css.map */
